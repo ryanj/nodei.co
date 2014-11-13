@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rm -rf "${OPENSHIFT_NODEJS_DIR}/tmp/saved.node_modules"
