@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export PATH=/sbin:$PATH
+export LD_LIBRARY_PATH=$OPENSHIFT_DATA_DIR/usr/local/lib:$OPENSHIFT_DATA_DIR/usr/local/include:/opt/rh/nodejs010/root/usr/lib64:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=$OPENSHIFT_DATA_DIR/usr/local/lib/pkgconfig
