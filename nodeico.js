@@ -5,6 +5,7 @@ const path        = require('path')
     , humanize    = require('humanize-number')
     , Router      = require('routes-router')
     , bole        = require('bole')
+    , cloudenv    = require('cloud-env')
     , sendPlain   = require('send-data/plain')
     , sendError   = require('send-data/error')
     , st          = require('st')
@@ -13,7 +14,8 @@ const path        = require('path')
     , reqLog      = bole('server:request')
 
     , isDev       = (/^dev/i).test(process.env.NODE_ENV)
-    , port        = process.env.PORT || 3000
+    , ip          = cloudenv.get('IP')
+    , port        = cloudenv.get('PORT', 3000 )
     , start       = new Date()
 
     , routes      = [
@@ -103,7 +105,7 @@ http.createServer(handler)
     log.error(err)
     throw err
   })
-  .listen(port, function (err) {
+  .listen(port, ip, function (err) {
     if (err) {
       log.error(err)
       throw err
@@ -111,6 +113,6 @@ http.createServer(handler)
 
     log.info('Server started on port %d', port)
     console.log()
-    console.log('>> Running: http://localhost:' + port)
+    console.log('>> Running: http://'+ip+':' + port)
     console.log()
   })

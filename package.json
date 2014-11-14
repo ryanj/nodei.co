@@ -12,6 +12,7 @@
     "bonzo": "~2.0.0",
     "browserify": "~5.10.0",
     "canvas": "~1.1.6",
+    "cloud-env": "^0.1.0",
     "delayed": "0.0.0",
     "domready": "~1.0.6",
     "ender-js": "~0.5.0",
@@ -35,7 +36,8 @@
     "qwery-mobile": false
   },
   "scripts": {
-    "install": "browserify browser-lib/index.js -o public/index.js"
+    "install": "browserify browser-lib/index.js -o public/index.js",
+    "start": "node nodeico.js"
   },
   "private": true
 }
